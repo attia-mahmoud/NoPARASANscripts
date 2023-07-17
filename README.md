@@ -6,11 +6,11 @@ This repository contains scripts and files to be used by the master and worker n
 
 ## Usage
 
-To pull the docker image of the (master node)[https://hub.docker.com/repository/docker/nopasaranhosts/master/general]
+To pull the docker image of the [master node](https://hub.docker.com/repository/docker/nopasaranhosts/master/general)
 
 `docker pull nopasaranhosts/master`
 
-and likewise for the (worker node)[https://hub.docker.com/repository/docker/nopasaranhosts/worker/general]
+and likewise for the [worker node](https://hub.docker.com/repository/docker/nopasaranhosts/worker/general)
 
 `docker pull nopasaranhosts/worker`
 
