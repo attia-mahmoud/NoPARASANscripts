@@ -8,5 +8,5 @@ To pull the docker images of the master node
 
 and likewise for the worker node
 
-`docker pull nopasaran/worker`
+`docker pull nopasaranhosts/worker`
 
