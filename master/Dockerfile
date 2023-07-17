@@ -3,6 +3,9 @@ FROM ubuntu:latest
 LABEL VERSION=0.1 \
       AUTHOR=NoPARASAN
 
+# Set non-interactive frontend
+ENV DEBIAN_FRONTEND=noninteractive
+
 # Update and upgrade packages
 RUN apt-get update && apt-get upgrade -y && \
     apt-get install -y nano iputils-ping git python3 wget openssh-server openssh-client
@@ -26,7 +29,7 @@ RUN mkdir -p /etc/ansible && touch /etc/ansible/hosts
 RUN git clone https://github.com/attia-mahmoud/NoPASARANscripts.git
 
 # Move the ssh_monitor script to the default directory
-RUN mv /NoPARASANscripts/ssh_monitor.sh /NoPASARANscripts/start_master.sh  /
+RUN mv /NoPARASANscripts/master/ssh_monitor.sh /NoPASARANscripts/master/start.sh  /
 
 # Clone the repository from GitHub
 RUN git clone https://github.com/BenIlies/NoPASARAN.git
@@ -37,4 +40,4 @@ WORKDIR /NoPASARAN
 # Install Python dependencies
 RUN python -m pip install -r requirements.txt
 
-WORKDIR / 
+WORKDIR /
