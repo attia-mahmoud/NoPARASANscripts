@@ -23,10 +23,10 @@ EXPOSE 22
 RUN git clone https://github.com/attia-mahmoud/NoPASARANscripts.git
 
 # Move the root certificate to home directory
-RUN mv /NoPASARANscripts/root-ca.crt /home && mv /NoPASARANscripts/start_worker.sh /
+RUN mv /NoPASARANscripts/worker/root-ca.crt /home && mv /NoPASARANscripts/worker/start.sh /
 
 # Make crtreq script an executable
-RUN chmod +x start_worker.sh
+RUN chmod +x start.sh
 
 # Clone the repository from GitHub
 RUN git clone https://github.com/BenIlies/NoPASARAN.git
