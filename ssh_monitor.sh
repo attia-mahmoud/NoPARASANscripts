@@ -6,7 +6,7 @@ ip_file="/etc/ansible/hosts"
 
 ip_regex="/^([0-9]{1,3}\.){3}[0-9]{1,3}$/"
 
-echo "" > "$ip_file"
+echo "[workers]" > "$ip_file"
 
 extract_ips() {
         while read -r line; do
