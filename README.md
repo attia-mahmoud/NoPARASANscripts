@@ -14,6 +14,7 @@ and likewise for the worker node
 
 `docker pull nopasaranhosts/worker`
 
+***
 
 When you start the container, run
 
