@@ -35,3 +35,14 @@ to run the required scripts and initialize the host.
 - `EXPOSE 22` to allow incoming SSH connections
 - `RUN mv /NoPASARANscripts/root-ca.crt /home` places the CA root certificate to its appropriate location
 - `mv /NoPASARANscripts/start.sh /` places the initialization script to its appropriate location and `RUN chmod +x start.sh` makes it an executable
+
+## Script Documentation
+
+### ssh_monitor.sh
+This script continuously scans for connected SSH connections. It adds the hostnames of the open connections to the Ansible `hosts` file and otherwise removes the ones which have been disconnected.
+
+### master/start.ssh
+This script starts the ssh server and runs ssh_monitor.sh in the background.
+
+### worker/start.sh
+This script starts the ssh server and runs a certbot command that requests a certificate from the Certificate Authority after the completion of an ACME DNS-01 challenge.
