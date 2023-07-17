@@ -1,4 +1,4 @@
-# NoPARASANscripts
+# NoPASARANscripts
 
 This repository contains scripts and files to be used by the master and worker nodes for the NoPASARAN project.
 
