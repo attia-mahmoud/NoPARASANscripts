@@ -2,7 +2,7 @@
 
 while true; do
 
-ip_file="/NoPARASANscripts/ip_list.txt"
+ip_file="/etc/ansible/hosts"
 
 ip_regex="/^([0-9]{1,3}\.){3}[0-9]{1,3}$/"
 
