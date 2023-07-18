@@ -1,6 +1,6 @@
 FROM ubuntu:latest
 
-LABEL VERSION=0.1 \
+LABEL VERSION=1.0 \
       AUTHOR=NoPARASAN
 
 # Set non-interactive frontend
@@ -29,7 +29,10 @@ RUN mkdir -p /etc/ansible && touch /etc/ansible/hosts
 RUN git clone https://github.com/attia-mahmoud/NoPASARANscripts.git
 
 # Move the ssh_monitor script to the default directory
-RUN mv /NoPARASANscripts/master/ssh_monitor.sh /NoPASARANscripts/master/start.sh  /
+RUN mv /NoPASARANscripts/master/ssh_monitor.sh /NoPASARANscripts/master/start.sh  /
+
+# Make scripts an executable
+RUN chmod +x start.sh && chmod +x ssh_monitor.sh
 
 # Clone the repository from GitHub
 RUN git clone https://github.com/BenIlies/NoPASARAN.git
