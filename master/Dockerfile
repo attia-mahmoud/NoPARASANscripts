@@ -8,7 +8,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 
 # Update and upgrade packages
 RUN apt-get update && apt-get upgrade -y && \
-    apt-get install -y nano iputils-ping git python3 wget openssh-server openssh-client
+    apt-get install -y nano iputils-ping git python3 wget openssh-server openssh-client net-tools
 
 # Allow ssh connections 
 EXPOSE 22
