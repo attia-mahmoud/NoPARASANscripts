@@ -41,7 +41,7 @@ to run the required scripts and initialize the host.
 ### ssh_monitor.sh
 This script continuously scans for connected SSH connections. It adds the hostnames of the open connections to the Ansible `hosts` file and otherwise removes the ones which have been disconnected.
 
-### master/start.ssh
+### master/start.sh
 This script starts the ssh server and runs ssh_monitor.sh in the background.
 
 ### worker/start.sh
