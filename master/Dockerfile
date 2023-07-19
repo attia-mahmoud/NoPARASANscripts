@@ -29,7 +29,7 @@ RUN mkdir -p /etc/ansible && touch /etc/ansible/hosts
 RUN git clone https://github.com/attia-mahmoud/NoPASARANscripts.git
 
 # Move the ssh_monitor script to the default directory
-RUN mv /NoPASARANscripts/master/ssh_monitor.sh /NoPASARANscripts/master/start.sh  /
+RUN mv /NoPASARANscripts/master/ssh_monitor.sh /NoPASARANscripts/master/start.sh  / && mv /NoPASARANscripts/master/root-ca.crt /home
 
 # Make scripts an executable
 RUN chmod +x start.sh && chmod +x ssh_monitor.sh
