@@ -1,0 +1,46 @@
+{
+        "root": "/root/.step/certs/root_ca.crt",
+        "federatedRoots": null,
+        "crt": "/root/.step/certs/intermediate_ca.crt",
+        "key": "/root/.step/secrets/intermediate_ca_key",
+        "address": "192.168.123.2:8443",
+        "insecureAddress": "",
+        "dnsNames": [
+                "192.168.123.2"
+        ],
+        "logger": {
+                "format": "text"
+        },
+        "db": {
+                "type": "badgerv2",
+                "dataSource": "/root/.step/db",
+                "badgerFileLoadingMode": ""
+        },
+        "authority": {
+                "provisioners": [
+                        {
+                                "type": "JWK",
+                                "name": "you@nopasaran.com",
+                                "key": {
+                                        "use": "sig",
+                                        "kty": "EC",
+                                        "kid": "wTJGPHm8xkdW3rU2MT9TP96qdNJxkXvFkQ102Hn5izA",
+                                        "crv": "P-256",
+                                        "alg": "ES256",
+                                        "x": "5YALr4-m6-gDONwoEl4UhyyNzj1d2HarlOcwTfhKoak",
+                                        "y": "VlB5wCxPJrbiR28CpYH_T8lwuZlQ7SVyeE81iwfePp4"
+                                },
+                                "encryptedKey": "eyJhbGciOiJQQkVTMi1IUzI1NitBMTI4S1ciLCJjdHkiOiJqd2sranNvbiIsImVuYyI6IkEyNTZHQ00iLC>
+                        }
+                ]
+        },
+        "tls": {
+                "cipherSuites": [
+                        "TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305_SHA256",
+                        "TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256"
+                ],
+                "minVersion": 1.2,
+                "maxVersion": 1.3,
+                "renegotiation": false
+        }
+}
