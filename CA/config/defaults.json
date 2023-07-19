@@ -1,6 +1,0 @@
-{
-        "ca-url": "https://192.168.123.2:8443",
-        "ca-config": "/root/.step/config/ca.json",
-        "fingerprint": "61bbfc6ad97a03a17f6307094c18a31591c92c7ab02b141b832fe7daee17b30b",
-        "root": "/root/.step/certs/root_ca.crt"
-}
