@@ -1,6 +1,14 @@
 #!/usr/bin/env bash
 
+if [-z "$1" ]; then
+  echo "First argument is missing. Please provide a CA URL."
+  exit 1
+fi
 
+if [-z "$2" ]; then
+  echo "First argument is missing. Please provide a CA Fingerprint."
+  exit 1
+fi
 
 # Bootstrap the CA configuration
 RUN step ca bootstrap --ca-url $1 --fingerprint $2
