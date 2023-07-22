@@ -1,22 +1,22 @@
 #!/usr/bin/env bash
 
 # Check for the first argument
-if [-z "$1" ]; then
+if [ -z "$1" ]; then
   echo "First argument is missing. Please provide a CA URL."
   exit 1
 fi
 
 # Check for the second argument
-if [-z "$2" ]; then
+if [ -z "$2" ]; then
   echo "First argument is missing. Please provide a CA Fingerprint."
   exit 1
 fi
 
 # Bootstrap the CA configuration
-RUN step ca bootstrap --ca-url $1 --fingerprint $2
+step ca bootstrap --ca-url $1 --fingerprint $2
 
 # Add the SSH User Public Key
-RUN step ssh config --roots > /etc/ssh/ssh_user_key.pub && echo "TrustedUserCAKeys /etc/ssh/ssh_user_key.pub" >> /etc/ssh/sshd_config
+step ssh config --roots > /etc/ssh/ssh_user_key.pub && echo "TrustedUserCAKeys /etc/ssh/ssh_user_key.pub" >> /etc/ssh/sshd_config
 
 # Start the SSH server
 service ssh start
