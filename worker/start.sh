@@ -2,13 +2,13 @@
 
 # Check for the first argument
 if [ -z "$1" ]; then
-  echo "First argument is missing. Please provide a master hostname."
+  echo "First argument is missing. Please provide the hostname of this worker."
   exit 1
 fi
 
 # Check for the second argument
 if [ -z "$2" ]; then
-  echo "Second argument is missing. Please provide an IP address."
+  echo "Second argument is missing. Please provide an IP address of a master."
   exit 1
 fi
 
