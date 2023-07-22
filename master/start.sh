@@ -8,7 +8,7 @@ fi
 
 # Check for the second argument
 if [ -z "$2" ]; then
-  echo "First argument is missing. Please provide a CA Fingerprint."
+  echo "Second argument is missing. Please provide a CA Fingerprint."
   exit 1
 fi
 
