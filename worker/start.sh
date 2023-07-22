@@ -14,39 +14,33 @@ fi
 
 # Check for the third argument
 if [ -z "$3" ]; then
-  echo "Third argument is missing. Please provide the hostname of this worker."
+  echo "Third argument is missing. Please provide an IP address of a master."
   exit 1
 fi
 
 # Check for the fourth argument
 if [ -z "$4" ]; then
-  echo "Fourth argument is missing. Please provide an IP address of a master."
-  exit 1
-fi
-
-# Check for the fifth argument
-if [ -z "$5" ]; then
-  echo "Fifth argument is missing. Using a random port."
+  echo "Fourth argument is missing. Using a random port."
   random_number=$((RANDOM % 1001))
   port=$((random_number + 2000))
 else
-  port=$5
+  port=$4
 fi
 
 # Bootstrap the CA configuration
 step ca bootstrap --ca-url $1 --fingerprint $2
 
-# REQUESTS_CA_BUNDLE=/home/root-ca.crt certbot certonly --manual --preferred-challenges dns -d $3 --server https://$1:443/acme/acme/directory --email you@nopasaran.com
+# REQUESTS_CA_BUNDLE=/home/root-ca.crt certbot certonly --manual --preferred-challenges dns -d $(whoami)@$(hostname) --server https://$1:443/acme/acme/directory --email you@nopasaran.com
 
 # Start the ssh service
 service ssh start
 
 # Request a certificate
-step ssh certificate $3 id_ecdsa
+step ssh certificate $(whoami)@$(hostname) id_ecdsa
 
 # Add the private key to the ssh agent
 eval "$(ssh-agent -s)"
 ssh-add id_ecdsa
 
 # Run port forwarding to the master node
-ssh -R $port:localhost:22 $4
+ssh -R $port:localhost:22 $3
