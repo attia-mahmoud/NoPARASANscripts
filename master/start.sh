@@ -14,9 +14,11 @@ fi
 
 # Bootstrap the CA configuration
 step ca bootstrap --ca-url $1 --fingerprint $2
+echo "Bootstrapped CA configuration successfully!"
 
 # Add the SSH User Public Key
 step ssh config --roots > /etc/ssh/ssh_user_key.pub && echo "TrustedUserCAKeys /etc/ssh/ssh_user_key.pub" >> /etc/ssh/sshd_config
+echo "Added the SSH user public key to ssh config file successfully!"
 
 # Start the SSH server
 service ssh start
@@ -25,3 +27,4 @@ service ssh start
 
 # Run the script to monitor incoming SSH connections
 ./ssh_monitor.sh &
+echo "ssh_monitor script is running..."
