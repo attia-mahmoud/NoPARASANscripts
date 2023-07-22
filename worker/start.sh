@@ -2,7 +2,7 @@
 
 # Check for the first argument
 if [ -z "$1" ]; then
-  echo "First argument is missing. Please provide a hostname."
+  echo "First argument is missing. Please provide a master hostname."
   exit 1
 fi
 
