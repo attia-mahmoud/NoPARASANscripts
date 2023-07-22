@@ -1,19 +1,19 @@
 #!/usr/bin/env bash
 
 # Check for the first argument
-if [-z "$1" ]; then
+if [ -z "$1" ]; then
   echo "First argument is missing. Please provide a hostname."
   exit 1
 fi
 
 # Check for the second argument
-if [-z "$2" ]; then
+if [ -z "$2" ]; then
   echo "Second argument is missing. Please provide an IP address."
   exit 1
 fi
 
 # Check for the third argument
-if [-z "$3" ]; then
+if [ -z "$3" ]; then
   echo "Second argument is missing. Using a random port."
   random_number=$((RANDOM % 1001))
   port=$((random_number + 2000))
