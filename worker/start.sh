@@ -30,16 +30,16 @@ if [ -z "$5" ]; then
   random_number=$((RANDOM % 1001))
   port=$((random_number + 2000))
 else
-  port=$3
+  port=$5
 fi
 
 # Bootstrap the CA configuration
 step ca bootstrap --ca-url $1 --fingerprint $2
 
+# REQUESTS_CA_BUNDLE=/home/root-ca.crt certbot certonly --manual --preferred-challenges dns -d $3 --server https://$1:443/acme/acme/directory --email you@nopasaran.com
+
 # Start the ssh service
 service ssh start
-
-# REQUESTS_CA_BUNDLE=/home/root-ca.crt certbot certonly --manual --preferred-challenges dns -d $3 --server https://$1:443/acme/acme/directory --email you@nopasaran.com
 
 # Request a certificate
 step ssh certificate $3 id_ecdsa
